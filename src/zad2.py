@@ -1,5 +1,6 @@
 import unittest
-
+import string
+import re
 
 class ValidPassword:
 
@@ -7,6 +8,8 @@ class ValidPassword:
         if password == "C1sowi@nka":
             return True
         if len(password) < 8:
+            return False
+        if re.search(f'[{string.punctuation}]', password) is None:
             return False
 
 
