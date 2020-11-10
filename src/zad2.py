@@ -7,8 +7,6 @@ class ValidPassword:
     def checker(self, password):
         if type(password) != str:
             raise TypeError("Password should be a string")
-        if password == "C1sowi@nka":
-            return True
         if len(password) < 8:
             return False
         if re.search(f'[{string.punctuation}]', password) is None:
@@ -17,6 +15,7 @@ class ValidPassword:
             return False
         if re.search('[A-Z]', password) is None:
             return False
+        return True
 
 
 class PasswordTest(unittest.TestCase):
@@ -35,10 +34,8 @@ class PasswordTest(unittest.TestCase):
     def test_password_no_digit(self):
         self.assertEqual(self.temp.checker("Lalalaa!!!"), False)
 
-
     def test_password_no_capital_letter(self):
         self.assertEqual(self.temp.checker("turruruak@!w22"), False)
-
 
     def test_password_not_a_string(self):
         self.assertRaises(TypeError, self.temp.checker, 1337)
