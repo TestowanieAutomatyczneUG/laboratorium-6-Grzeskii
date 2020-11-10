@@ -11,7 +11,7 @@ class PasswordTest(unittest.TestCase):
     def setUp(self):
         self.temp = ValidPassword()
 
-    @unittest.skip("skipping test")
+
     def test_password_correct(self):
         self.assertEqual(self.temp.checker("C1sowi@nka"), True)
 
