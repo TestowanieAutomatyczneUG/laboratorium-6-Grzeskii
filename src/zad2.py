@@ -31,7 +31,7 @@ class PasswordTest(unittest.TestCase):
     def test_password_no_digit(self):
         self.assertEqual(self.temp.checker("Lalalaa!!!"), False)
 
-    @unittest.skip("skipping test")
+
     def test_password_no_capital_letter(self):
         self.assertEqual(self.temp.checker("turruruak@!w22"), False)
 
