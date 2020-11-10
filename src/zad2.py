@@ -13,6 +13,8 @@ class ValidPassword:
             return False
         if re.search('[0-9]', password) is None:
             return False
+        if re.search('[A-Z]', password) is None:
+            return False
 
 
 class PasswordTest(unittest.TestCase):
