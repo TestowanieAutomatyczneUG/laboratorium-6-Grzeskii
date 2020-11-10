@@ -37,3 +37,31 @@ def statement(invoice, plays):
     result += f'Amount owed is {format_as_dollars(total_amount/100)}\n'
     result += f'You earned {volume_credits} credits\n'
     return result
+
+
+import unittest
+
+class testStatement(unittest.TestCase):
+
+    def test_statement_for_tragedy_and_audience_lt_30(self):
+        self.assertEqual(statement({"customer": "BigCo", "performances": [{"playID": "hamlet", "audience": 25}]}, {"hamlet": {"name": "Hamlet", "type": "tragedy"}}),
+                         "Statement for BigCo\n Hamlet: $400.00 (25 seats)\nAmount owed is $400.00\nYou earned 0 credits\n")
+
+    def test_statement_for_tragedy_and_audience_gt_30(self):
+        self.assertEqual(statement({"customer": "BigCo", "performances": [{"playID": "hamlet", "audience": 32}]}, {"hamlet": {"name": "Hamlet", "type": "tragedy"}}),
+                         "Statement for BigCo\n Hamlet: $420.00 (32 seats)\nAmount owed is $420.00\nYou earned 2 credits\n")
+
+    def test_statement_for_comedy_and_audience_lt_20(self):
+        self.assertEqual(statement({"customer": "BigCo", "performances": [{"playID": "hamlet", "audience": 15}]}, {"hamlet": {"name": "Hamlet", "type": "comedy"}}),
+                         "Statement for BigCo\n Hamlet: $345.00 (15 seats)\nAmount owed is $345.00\nYou earned 3 credits\n")
+
+    def test_statement_for_comedy_and_audience_gt_20(self):
+        self.assertEqual(statement({"customer": "BigCo", "performances": [{"playID": "hamlet", "audience": 25}]}, {"hamlet": {"name": "Hamlet", "type": "comedy"}}),
+                         "Statement for BigCo\n Hamlet: $500.00 (25 seats)\nAmount owed is $500.00\nYou earned 5 credits\n")
+
+    def test_statement_for_value_error(self):
+        self.assertRaises(ValueError, statement, {"customer": "BigCo", "performances": [{"playID": "hamlet", "audience": 25}]}, {"hamlet": {"name": "Hamlet", "type": "action"}})
+
+
+if __name__ == "__main__":
+    unittest.main()
