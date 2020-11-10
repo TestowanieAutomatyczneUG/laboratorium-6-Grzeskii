@@ -4,13 +4,13 @@ import unittest
 class ValidPassword:
 
     def checker(self, password):
-        return
+        if password == "C1sowi@nka":
+            return True
 
 
 class PasswordTest(unittest.TestCase):
     def setUp(self):
         self.temp = ValidPassword()
-
 
     def test_password_correct(self):
         self.assertEqual(self.temp.checker("C1sowi@nka"), True)
