@@ -15,7 +15,7 @@ class PasswordTest(unittest.TestCase):
     def test_password_correct(self):
         self.assertEqual(self.temp.checker("C1sowi@nka"), True)
 
-    @unittest.skip("skipping test")
+
     def test_password_too_short(self):
         self.assertEqual(self.temp.checker("H3llo!"), False)
 
