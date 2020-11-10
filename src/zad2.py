@@ -53,7 +53,7 @@ class ValidPassword:
         return True
 
 
-class PasswordTest(unittest.TestCase):
+class PasswordTest(unittest.TestCase): # pragma: no cover
     def setUp(self):
         self.temp = ValidPassword()
 
@@ -79,7 +79,7 @@ class PasswordTest(unittest.TestCase):
         self.temp = None
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # pragma: no cover
     unittest.main()
     import doctest
     doctest.testmod()
