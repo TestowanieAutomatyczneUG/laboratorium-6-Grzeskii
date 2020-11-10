@@ -5,6 +5,8 @@ import re
 class ValidPassword:
 
     def checker(self, password):
+        if type(password) != str:
+            raise TypeError("Password should be a string")
         if password == "C1sowi@nka":
             return True
         if len(password) < 8:
