@@ -6,6 +6,8 @@ class ValidPassword:
     def checker(self, password):
         if password == "C1sowi@nka":
             return True
+        if len(password) < 8:
+            return False
 
 
 class PasswordTest(unittest.TestCase):
