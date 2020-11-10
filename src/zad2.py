@@ -22,14 +22,11 @@ class PasswordTest(unittest.TestCase):
     def test_password_correct(self):
         self.assertEqual(self.temp.checker("C1sowi@nka"), True)
 
-
     def test_password_too_short(self):
         self.assertEqual(self.temp.checker("H3llo!"), False)
 
-
     def test_password_no_special_character(self):
         self.assertEqual(self.temp.checker("djdsnakA21"), False)
-
 
     def test_password_no_digit(self):
         self.assertEqual(self.temp.checker("Lalalaa!!!"), False)
